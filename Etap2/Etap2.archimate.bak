@@ -443,6 +443,10 @@ Godzina_pomiaru</content>
         <bounds x="576" y="756" width="120" height="55"/>
         <sourceConnection xsi:type="archimate:Connection" id="3aab9caf-2d8d-4df3-945b-c952ca09fd62" source="40208644-d225-4d4a-bd8e-d005f8aaf45d" target="d167be69-6a18-472e-b69f-ef11f82e62cb" archimateRelationship="35c2856c-c063-4882-8b82-83ff9491e7bf"/>
       </child>
+      <child xsi:type="archimate:Note" id="81f24a3a-f203-46f9-9575-9a606bf6057b" textAlignment="1">
+        <bounds x="300" y="342" width="185" height="38"/>
+        <content>Może to jednak rozdzielić na dwa widoki?</content>
+      </child>
     </element>
     <element xsi:type="archimate:ArchimateDiagramModel" name="03_Wystawienie faktury" id="10d540c5-1b36-41af-bc53-ce7ca5b2e300">
       <child xsi:type="archimate:DiagramObject" id="99a11427-ff6b-43a3-be56-41f44e97c432" targetConnections="acd5110b-4200-417b-85ec-71f056df6113" archimateElement="4b1e4836-cfce-4127-b46c-e9d328ebe04e">
