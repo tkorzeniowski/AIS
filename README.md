@@ -1,56 +1,39 @@
-# AIS
+## AIS
+Architektura i integracja systemów 17Z.
 
-Liczniki jednokierunkowe
+### Temat
+System zbierania danych z bezprzewodowych mierników gazu/ciepła/energii elektrycznej. Zadaniem systemu jest zbieranie danych i naliczanie należnośc za zużyte medium.
 
-Stały dostęp do energii elektrycznej
+### Etap 1
+Architektura systemu zgodna z metodą '4+1 views' oraz podjęte (kluczowe) decyzje architektoniczne z wykorzystaniem modelu MAD 2.0.
 
-Jedna stacja odbiorcza zbiera dane z liczników - niezależnie czy w bloku czy z zabudowy jednorodzinnej
+**Interesariusze systemu:**
+* dostawcy i operatorzy medium
+* odbiorcy medium
+* inkasenci
+* operatorzy, administratorzy i serwisanci systemu
+* twórcy systemu
 
+**Widoki systemu:**
+1. Logiczny - diagram klas
+2. Deweloperski - diagram pakietów
+3. Procesów - diagramy sekwencji
+4. Fizyczny - diagram rozmieszczenia
+5. Scenariusze - główe przypadki użycia systemu
 
-# Interesariusze:
+**Kluczowe decyzje architektoniczne (MAD 2.0):**
+* Hierarchia komponentów - centrala, koncentratory, liczniki
+* Jednokierunkowa, przewodowa komunikacja licznika z koncentratorem
+* Kominikacja koncentratora z centralą - inkasent
+* Komunikacja koncentratora z inkasentem - Zigbee, UDP
+* Częstość rozsyłu danych - 15 min
+* Języki programowania urządzeń (liczników/koncentratorów) i aplikacji, bazy danych, ...
 
-Klienci indywidualni /firmy
+**Wykorzystane wzorce architektoniczne:**
+* Widok poziomów abstrakcji: warstwy
+* Widok przechowywania danych: współdzielone repozytorium
+* Widok przepływu danych: przetwarzanie wsadowe
+* Widok interakcji między komponentami: klient – serwer
 
-Główny dostawca medium, sponsor systemu
-
-Inkasent - zbierający odczyty z obszaru
-
-Jednostka przetwarzająca odczyty - agregacja do faktury
-
-Operatorzy / użytkownicy systemu / technicy i serwisanci, twórcy systemu (studenci, MY i ja i ty)
-
-
-# MAD 2.0
-Dywersyfikacja rodzajów liczników - jedna stacja odbiorcza, wiele liczników nadających
-
-Protokół przesyłowy - własny/IP/ ZigBee
-
-Częstość rozsyłu danych - 15 min
-
-Stałe łącze z centralą / człowiek zbierający dane
-
-Skala zbierania odczytów do koncentratora - blok, osiedle, ...
-
-Podział klientów - bloki, domki, firmy - ile koncentratorów na jakim obszarze
-
-Zbierane dane - klient, odczyt, czas odczytu
-
-Wykrywanie i reakcja na defekty
-
-Bezpieczeństwo danych - szyfrowanie
-
-
-
-
-# Wzorce architektoniczne
-Warstwowe rozmieszczenie komponentów (hierarchiczne)
-
-Wspólne repozytorium zebranych odczytów
-
-Klient serwer między licznikami a koncentratorem - komunikacja między komponentami
-
-Przetwarzanie wsadowe - od inkasenta do centrali
-
-
-# Kluczowy scenariusz:
-Licznik co 15 minut wysyła info do koncentratora, przychodzi inkasent zbiera dane z okolicy, wprowadza dane do systemu, system (+ administrator) co miesiąc wystawia fakturę
+### Etap 2
+Architektura systemu przedstawiona w jezyku ArchiMate.
